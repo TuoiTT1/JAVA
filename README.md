@@ -1,1 +1,1 @@
-# JAVA_WEB
+# JAVA_CORE
