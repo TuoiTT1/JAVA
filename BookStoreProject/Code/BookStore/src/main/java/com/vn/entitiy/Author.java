@@ -9,18 +9,18 @@ public class Author implements Serializable {
 
 	private static final long serialVersionUID = 2754426018554187418L;
 
-	private Integer ID;
-	private String AuthorName;
-	private String AuthorAddress;
+	private Integer id;
+	private String authorName;
+	private String authorAddress;
 
 	public Author() {
 	}
 
-	public Author(Integer iD, String authorName, String authorAddress) {
+	public Author(Integer id, String authorName, String authorAddress) {
 		super();
-		ID = iD;
-		AuthorName = authorName;
-		AuthorAddress = authorAddress;
+		this.id = id;
+		this.authorName = authorName;
+		this.authorAddress = authorAddress;
 	}
 
 }

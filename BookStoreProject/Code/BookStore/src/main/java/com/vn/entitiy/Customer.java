@@ -9,24 +9,24 @@ public class Customer implements Serializable {
 
 	private static final long serialVersionUID = 1965647544478830772L;
 
-	private Integer ID;
-	private String CustomerName;
-	private String CustomerEmail;
-	private String CustomerPhone;
-	private String CustomerAddress;
+	private Integer id;
+	private String customerName;
+	private String customerEmail;
+	private String customerPhone;
+	private String customerAddress;
 	private User user;
 
 	public Customer() {
 	}
 
-	public Customer(Integer iD, String customerName, String customerEmail, String customerPhone, String customerAddress,
+	public Customer(Integer id, String customerName, String customerEmail, String customerPhone, String customerAddress,
 			User user) {
 		super();
-		ID = iD;
-		CustomerName = customerName;
-		CustomerEmail = customerEmail;
-		CustomerPhone = customerPhone;
-		CustomerAddress = customerAddress;
+		this.id = id;
+		this.customerName = customerName;
+		this.customerEmail = customerEmail;
+		this.customerPhone = customerPhone;
+		this.customerAddress = customerAddress;
 		this.user = user;
 	}
 

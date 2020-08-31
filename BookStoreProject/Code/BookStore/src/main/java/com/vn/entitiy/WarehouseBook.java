@@ -9,7 +9,7 @@ public class WarehouseBook implements Serializable {
 
 	private static final long serialVersionUID = 6326063947828699203L;
 
-	private Integer ID;
+	private Integer id;
 	private Book book;
 	private Warehouse warehouse;
 	private Integer count;
@@ -17,9 +17,9 @@ public class WarehouseBook implements Serializable {
 	public WarehouseBook() {
 	}
 
-	public WarehouseBook(Integer iD, Book book, Warehouse warehouse, Integer count) {
+	public WarehouseBook(Integer id, Book book, Warehouse warehouse, Integer count) {
 		super();
-		ID = iD;
+		this.id = id;
 		this.book = book;
 		this.warehouse = warehouse;
 		this.count = count;

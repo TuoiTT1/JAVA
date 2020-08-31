@@ -9,16 +9,16 @@ public class Role extends Object implements Serializable {
 
 	private static final long serialVersionUID = 7421689016963724957L;
 
-	private Integer ID;
-	private String RoleName;
+	private Integer id;
+	private String roleName;
 
 	public Role() {
 	}
 
-	public Role(Integer iD, String roleName) {
+	public Role(Integer id, String roleName) {
 		super();
-		ID = iD;
-		RoleName = roleName;
+		this.id = id;
+		this.roleName = roleName;
 	}
 
 }
