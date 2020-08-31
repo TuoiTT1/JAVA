@@ -14,15 +14,4 @@ public class ShoppingBasketBook implements Serializable {
 	private User user;
 	private Integer count;
 
-	public ShoppingBasketBook() {
-	}
-
-	public ShoppingBasketBook(Integer id, Book book, User user, Integer count) {
-		super();
-		this.id = id;
-		this.book = book;
-		this.user = user;
-		this.count = count;
-	}
-
 }

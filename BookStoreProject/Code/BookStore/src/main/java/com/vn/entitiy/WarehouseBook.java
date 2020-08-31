@@ -14,15 +14,4 @@ public class WarehouseBook implements Serializable {
 	private Warehouse warehouse;
 	private Integer count;
 
-	public WarehouseBook() {
-	}
-
-	public WarehouseBook(Integer id, Book book, Warehouse warehouse, Integer count) {
-		super();
-		this.id = id;
-		this.book = book;
-		this.warehouse = warehouse;
-		this.count = count;
-	}
-
 }

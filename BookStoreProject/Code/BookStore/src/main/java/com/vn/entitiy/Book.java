@@ -16,17 +16,4 @@ public class Book implements Serializable {
 	private Author author;
 	private Publisher publisher;
 
-	public Book() {
-	}
-
-	public Book(Integer id, String title, Integer year, Float price, Author author, Publisher publisher) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.year = year;
-		this.price = price;
-		this.author = author;
-		this.publisher = publisher;
-	}
-
 }

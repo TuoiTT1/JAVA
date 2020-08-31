@@ -12,13 +12,4 @@ public class Role extends Object implements Serializable {
 	private Integer id;
 	private String roleName;
 
-	public Role() {
-	}
-
-	public Role(Integer id, String roleName) {
-		super();
-		this.id = id;
-		this.roleName = roleName;
-	}
-
 }

@@ -14,15 +14,4 @@ public class Warehouse implements Serializable {
 	private String warehousePhone;
 	private String warehouseAddress;
 
-	public Warehouse() {
-	}
-
-	public Warehouse(Integer id, String warehouseName, String warehousePhone, String warehouseAddress) {
-		super();
-		this.id = id;
-		this.warehouseName = warehouseName;
-		this.warehousePhone = warehousePhone;
-		this.warehouseAddress = warehouseAddress;
-	}
-
 }

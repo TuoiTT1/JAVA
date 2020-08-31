@@ -15,16 +15,4 @@ public class Publisher implements Serializable {
 	private String publisherAddress;
 	private String publisherPhone;
 
-	public Publisher() {
-	}
-
-	public Publisher(Integer id, String publisherName, String url, String publisherAddress, String publisherPhone) {
-		super();
-		this.id = id;
-		this.publisherName = publisherName;
-		this.url = url;
-		this.publisherAddress = publisherAddress;
-		this.publisherPhone = publisherPhone;
-	}
-
 }
