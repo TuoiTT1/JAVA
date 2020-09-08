@@ -17,7 +17,7 @@ public class Main {
 		System.out.println(id2);
 
 		// test with charCode <> "0"
-		charCode = "O";
+		charCode = "*";
 		String id3 = generateID(beforeCode, prefix, uperUnit, length, charCode);
 		String id4 = generateID(id3, prefix, uperUnit, length, charCode);
 		System.out.println(id3);
@@ -26,28 +26,22 @@ public class Main {
 
 	public static String generateID(String beforeCode, String prefix, int uperUnit, int length, String charCode) {
 		String id = null;
+		String formatStr;
 		if (charCode.equals("0")) {
-			String formatStr = prefix + "%0" + (length - prefix.length()) + "d";
-			if (beforeCode == null) {
-				id = String.format(formatStr, uperUnit);
-			} else {
-				beforeCode = beforeCode.replaceAll("[^0-9]", "0");
-				int number = Integer.parseInt(beforeCode);
-				number = number + uperUnit;
-				id = String.format(formatStr, number);
-			}
+			formatStr = prefix + "%0" + (length - prefix.length()) + "d";
+			
 		} else {
-			String formatStr = prefix + "%" + (length - prefix.length()) + "s";
-			if (beforeCode == null) {
-				id = String.format(formatStr, uperUnit);
-				id = id.replace(" ", charCode);
-			} else {
-				beforeCode = beforeCode.replaceAll("[^0-9]", "0");
-				int number = Integer.parseInt(beforeCode);
-				number = number + uperUnit;
-				id = String.format(formatStr, number);
-				id = id.replace(" ", charCode);
-			}
+			formatStr = prefix + "%" + (length - prefix.length()) + "s";
+		}
+		if (beforeCode == null) {
+			id = String.format(formatStr, uperUnit);
+			id = id.replace(" ", charCode);
+		} else {
+			beforeCode = beforeCode.replaceAll("[^0-9]", "0");
+			int number = Integer.parseInt(beforeCode);
+			number = number + uperUnit;
+			id = String.format(formatStr, number);
+			id = id.replace(" ", charCode);
 		}
 		return id;
 	}
