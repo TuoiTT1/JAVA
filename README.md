@@ -1,2 +1,2 @@
-# Learning Java full stack
-# Java core 
+# Java full stack
+# 	Java core 
