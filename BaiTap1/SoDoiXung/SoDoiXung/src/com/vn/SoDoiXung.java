@@ -16,19 +16,25 @@ public class SoDoiXung {
 
 	public void kiemTraSoDoiXung() {
 		// Kiem tra so doi xung
-		StringBuilder sBuilder = new StringBuilder(input);
-		String reverseInput = sBuilder.reverse().toString();
-
-		if (reverseInput.equals(input)) {
+//		StringBuilder sBuilder = new StringBuilder(input);
+//		String reverseInput = sBuilder.reverse().toString();
+//
+//		if (reverseInput.equals(input)) {
+//			System.out.println("So " + input + " la so doi xung");
+//			return;
+//		} else {
+//			System.out.println("So " + input + " khong phai so doi xung");
+//		}
+		
+		char[] arr = input.toCharArray();
+		if (isSoiDoiXung(arr)) {
 			System.out.println("So " + input + " la so doi xung");
 			return;
 		} else {
 			System.out.println("So " + input + " khong phai so doi xung");
 		}
 		// Bien doi so doi xung
-
 		// Dem so lan xuat hien cua cac chu so
-		char[] arr = input.toCharArray();
 		Map<Character, Integer> countMap = new HashMap<Character, Integer>();
 		int n = arr.length;
 		int count;
