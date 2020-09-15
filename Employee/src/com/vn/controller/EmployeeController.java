@@ -1,12 +1,11 @@
 package com.vn.controller;
 
-import java.io.File;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -26,15 +25,14 @@ public class EmployeeController {
 	@SuppressWarnings("resource")
 	public List<Employee> readDataCSV(String pathFileCsv) {
 		try {
-			File file = new File(pathFileCsv);
-			Scanner inp = new Scanner(file);
+			FileReader fr = new FileReader(pathFileCsv);
+			BufferedReader br = new BufferedReader(fr);
 			String line;
 			Employee employee;
 			String[] arrSplits;
 
 			int i = 0;
-			while (inp.hasNext()) {
-				line = inp.nextLine();
+			while ((line = br.readLine()) != null) {
 				if (i > 0) {
 					arrSplits = line.split(",");
 
@@ -101,15 +99,11 @@ public class EmployeeController {
 
 	public List<Employee> filterThreeYoungersHaveBestSalary(List<Employee> emps, Float bestSalary) {
 		List<Employee> list = emps.stream()
-				.sorted(Comparator.comparing(Employee::getAge).thenComparing(Employee::getSalary))
+				.sorted(Comparator.comparing(Employee::getAge)
+						.thenComparing(Comparator.comparing(Employee::getSalary).reversed()))
 				.collect(Collectors.toList());
-		
-//		System.out.println(empMaps);
+		return list.subList(0, 3);
 
-		// emps.forEach(System.out::println);
-
-		// showAllEmployees(emps);
-		return list;
 	}
 
 	public List<Employee> containNameList(List<Employee> emps, String s) {
