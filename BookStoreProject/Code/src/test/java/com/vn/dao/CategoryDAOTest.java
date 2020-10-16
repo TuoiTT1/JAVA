@@ -3,8 +3,8 @@ package com.vn.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.vn.dao.impl.CategoryDAOImpl;
 import com.vn.entity.Category;
-import com.vn.impl.CategoryDAOImpl;
 
 import junit.framework.TestCase;
 

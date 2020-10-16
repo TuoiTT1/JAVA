@@ -1,7 +1,7 @@
 package com.vn.controller;
 
 import com.vn.dao.CategoryDAO;
-import com.vn.impl.CategoryDAOImpl;
+import com.vn.dao.impl.CategoryDAOImpl;
 
 public class CategoryController {
 
