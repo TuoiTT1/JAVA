@@ -15,13 +15,11 @@ import com.vn.dao.impl.BookDAOImpl;
 import com.vn.entity.Book;
 
 /**
- * Servlet implementation class BookSevlet
+ * Servlet implementation class HomeController
  */
-@WebServlet("/book")
-public class BookSevlet extends HttpServlet {
+@WebServlet("")
+public class HomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	static private BookDAO bookDAO = new BookDAOImpl();
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -29,21 +27,14 @@ public class BookSevlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		List<Book> books = new ArrayList<Book>();
-		books = bookDAO.getAll();
+		BookDAO bookDAO = new BookDAOImpl();
+		List<Book> books = bookDAO.getAll();
+
+		if (books == null)
+			books = new ArrayList<Book>();
+
 		request.setAttribute("books", books);
-
-		request.getRequestDispatcher("book.jsp").forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.getRequestDispatcher("/book/book.jsp").forward(request, response);
 	}
 
 }

@@ -41,15 +41,15 @@ public class Account implements Serializable {
 	private String userName;
 
 	// bi-directional one-to-one association to Customer
-	@OneToOne(mappedBy = "account")
+	@OneToOne(mappedBy = "account", fetch=FetchType.LAZY)
 	private Customer customer;
 
 	// bi-directional one-to-one association to Employee
-	@OneToOne(mappedBy = "account")
+	@OneToOne(mappedBy = "account", fetch=FetchType.LAZY)
 	private Employee employee;
 
 	// bi-directional one-to-one association to Address
-	@OneToOne
+	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "Address_ID", referencedColumnName = "ID")
 	private Address address;
 

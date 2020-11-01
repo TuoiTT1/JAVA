@@ -3,31 +3,29 @@ package com.vn.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Query;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import com.vn.config.HibernateConfiguration;
-import com.vn.dao.BookDAO;
-import com.vn.entity.Book;
+import com.vn.dao.CategoryDAO;
+import com.vn.entity.Category;
 
-public class BookDAOImpl implements BookDAO {
+public class CategoryDAOImpl implements CategoryDAO {
 	static SessionFactory factory = HibernateConfiguration.getSesstionFactory();
 
 	@Override
-	public Book create(Book book) {
+	public Category create(Category category) {
 		Session session = null;
 		try {
 
 			session = factory.openSession();
 			Transaction transaction = session.beginTransaction();
 
-			session.save(book);
+			session.save(category);
 			transaction.commit();
 
-			System.out.println("create a book successful!" + book);
+			System.out.println("create a category successful!");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -35,44 +33,44 @@ public class BookDAOImpl implements BookDAO {
 				session.close();
 			}
 		}
-		if (book.getId() == 0) {
-			System.out.println("create a book Fail!");
+		if (category.getId() == 0) {
+			System.out.println("create a category Fail!");
 		}
-		return book;
+		return category;
 	}
 
 	@Override
-	public Book update(Book book) {
+	public Category update(Category category) {
 		Session session = null;
 		try {
 			session = factory.openSession();
 			Transaction transaction = session.beginTransaction();
 
-			session.update(book);
+			session.update(category);
 			transaction.commit();
 
-			System.out.println("update a book successful!" + book);
+			System.out.println("update a category successful!");
 		} catch (Exception e) {
-			System.out.println("update a book Fail!");
+			System.out.println("update a category Fail!");
 			e.printStackTrace();
 		} finally {
 			if (session != null) {
 				session.close();
 			}
 		}
-		return book;
+		return category;
 	}
 
 	@Override
-	public List<Book> getAll() {
+	public List<Category> getAll() {
 		Session session = null;
-		List<Book> list = null;
+		List<Category> list = null;
 		try {
-			list = new ArrayList<Book>();
+			list = new ArrayList<Category>();
 
 			session = factory.openSession();
 
-			list = session.createQuery("From Book", Book.class).getResultList(); // From table_name
+			list = session.createQuery("SELECT c From Category c", Category.class).getResultList(); // From table_name
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -85,14 +83,14 @@ public class BookDAOImpl implements BookDAO {
 	}
 
 	@Override
-	public Book findById(int id) {
-		Book book = null;
+	public Category findById(int id) {
+		Category category = null;
 		Session session = null;
 		try {
 
 			session = factory.openSession();
 
-			book = session.find(Book.class, id);
+			category = session.find(Category.class, id);
 
 			session.close();
 		} catch (Exception e) {
@@ -102,7 +100,7 @@ public class BookDAOImpl implements BookDAO {
 				session.close();
 			}
 		}
-		return book;
+		return category;
 	}
 
 	@Override
@@ -112,15 +110,15 @@ public class BookDAOImpl implements BookDAO {
 			session = factory.openSession();
 			Transaction transaction = session.beginTransaction();
 
-			Book book = findById(id);
-			if (book != null) {
-				session.delete(book);
+			Category author = findById(id);
+			if (author != null) {
+				session.delete(author);
 				transaction.commit();
 
-				System.out.println("Delete book has ID = " + id + " is successful!");
+				System.out.println("Delete author has ID = " + id + " is successful!");
 				return 1;
 			} else {
-				System.out.println("Book has ID = " + id + " not exists in DB");
+				System.out.println("Author has ID = " + id + " not exists in DB");
 			}
 			return -1;
 		} catch (Exception e) {
@@ -131,32 +129,8 @@ public class BookDAOImpl implements BookDAO {
 				session.close();
 			}
 		}
-		System.out.println("Delete book has ID = " + id + " is Fail!");
+		System.out.println("Delete author has ID = " + id + " is Fail!");
 		return -1;
-	}
-
-	@Override
-	public List<Book> getByCategoryId(int categoryId) {
-		Session session = null;
-		List<Book> list = null;
-		try {
-			list = new ArrayList<Book>();
-
-			session = factory.openSession();
-
-			String hql = "SELECT b From Book b WHERE b.category.id = :categoryId";
-			Query query = session.createQuery(hql, Book.class);
-			query.setParameter("categoryId", categoryId);
-			list = query.getResultList(); 
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			if (session != null) {
-				session.close();
-			}
-		}
-		return list;
 	}
 
 }

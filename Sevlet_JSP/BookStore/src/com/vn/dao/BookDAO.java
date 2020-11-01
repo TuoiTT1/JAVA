@@ -15,4 +15,6 @@ public interface BookDAO {
 	public Book findById(int id);
 
 	public Integer delete(int id);
+	
+	public List<Book> getByCategoryId(int categoryId);
 }

@@ -1,3 +1,5 @@
 eclipse.preferences.version=1
 encoding//WebContent/book.jsp=UTF-8
-encoding/<project>=UTF-8
+encoding//WebContent/book/list.jsp=UTF-8
+encoding//WebContent/template/_header.jsp=UTF-8
+encoding//src/com/vn/controller/LoginController.java=UTF-8

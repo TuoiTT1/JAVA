@@ -21,13 +21,20 @@ public class Category implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 
 	private String title;
 
 	// bi-directional many-to-one association to Book
 	@OneToMany(mappedBy = "category")
 	private List<Book> books;
+
+	public Category() {
+	}
+	
+	public Category(Integer id) {
+		this.id = id;
+	}
 
 	public Book addBook(Book book) {
 		getBooks().add(book);
