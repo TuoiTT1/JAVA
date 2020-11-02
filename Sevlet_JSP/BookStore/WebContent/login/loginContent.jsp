@@ -12,11 +12,11 @@
 	<table>
 		<tr>
 			<td>UserName</td>
-			<td><input type="text" name="userName" value="" /></td>
+			<td><input type="text" name="userName" value="" required="required" /></td>
 		</tr>
 		<tr>
 			<td>Password</td>
-			<td><input type="text" name="password" value="" /></td>
+			<td><input type="text" name="password" value="" required="required" /></td>
 		</tr>
 		<tr>
 			<td colspan="2"><input type="submit" value="Login"></td>

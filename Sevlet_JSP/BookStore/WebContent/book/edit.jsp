@@ -13,20 +13,20 @@
 			<tr>
 				<td>ID</td>
 				<td><input type="text" name="id" value="${book.id}"
-					readonly="readonly" /></td>
+					readonly="readonly"/></td>
 			</tr>
 			<tr>
 				<td>Category</td>
 				<td><input type="text" name="categoryId"
-					value="${book.category.id}" /></td>
+					value="${book.category.id}"  required="required"/></td>
 			</tr>
 			<tr>
 				<td>Name</td>
-				<td><input type="text" name="name" value="${book.name}" /></td>
+				<td><input type="text" name="name" value="${book.name}" required="required"/></td>
 			</tr>
 			<tr>
 				<td>Author</td>
-				<td><input type="text" name="author" value="${book.author}" /></td>
+				<td><input type="text" name="author" value="${book.author}" required="required"/></td>
 			</tr>
 			<tr>
 				<td>Publisher</td>
@@ -40,7 +40,7 @@
 			</tr>
 			<tr>
 				<td>Quantity</td>
-				<td><input type="text" name="quantity" value="${book.quantity}" /></td>
+				<td><input type="text" name="quantity" value="${book.quantity}" required="required"/></td>
 			</tr>
 			<tr>
 				<td>Price</td>
