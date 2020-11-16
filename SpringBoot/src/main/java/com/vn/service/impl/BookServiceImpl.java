@@ -14,6 +14,7 @@ public class BookServiceImpl implements BookService {
 
 	@Autowired
 	private BookRepository bookRepository;
+
 	@Override
 	public List<Book> getAllBooks() {
 		return bookRepository.findAll();
@@ -22,6 +23,17 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public Book getById(Integer id) {
 		return bookRepository.getOne(id);
+	}
+
+	@Override
+	public Book save(Book book) {
+		return bookRepository.save(book);
+	}
+
+	@Override
+	public void delete(Integer id) {
+		bookRepository.deleteById(id);
+
 	}
 
 }

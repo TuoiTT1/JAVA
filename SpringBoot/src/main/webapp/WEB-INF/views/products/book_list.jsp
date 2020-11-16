@@ -5,7 +5,7 @@
 <h2>
 	<a href="${pageContext.request.contextPath}/home">Home</a> > <a href="${pageContext.request.contextPath}/products">Products</a>
 </h2>
-
+<h4><a href="${pageContext.request.contextPath}/product/new">Thêm mới</a></h4>
 <table>
 	<thead>
 		<tr>
@@ -34,10 +34,10 @@
 				<td><c:out value="${element.price}"></c:out></td>
 				<td><c:out value="${element.description}"></c:out></td>
 				<td><a
-					href="${pageContext.request.contextPath}/book?action=edit&code=${element.id }">Chỉnh
+					href="${pageContext.request.contextPath}/product/edit/${element.id }">Chỉnh
 						sửa</a></td>
 				<td><a
-					href="${pageContext.request.contextPath}/book?action=delete&code=${element.id }">Xóa</a></td>
+					href="${pageContext.request.contextPath}/product/delete/${element.id }">Xóa</a></td>
 			</tr>
 		</c:forEach>
 	</tbody>
