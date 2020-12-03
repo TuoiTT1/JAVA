@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Book List</title>
+ <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+	<h2>
+		<a th:href="@{/products}">Products</a>
+	</h2>
+	<h4>
+		<a th:href="@{/product/new}">Thêm mới</a>
+	</h4>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>STT</th>
+				<th>Tên sách</th>
+				<th>Tác giả</th>
+				<th>Nhà xuất bản</th>
+				<th>Năm xuất bản</th>
+				<th>Số lượng</th>
+				<th>Giá gốc (VND)</th>
+				<th>Mô tả</th>
+				<th>Chỉnh sửa</th>
+				<th>Xóa</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="element : ${books }">
+				<td></td>
+				<td th:utext="${element.name}"></td>
+				<td th:utext="${element.author}"></td>
+				<td th:utext="${element.publisher}"></td>
+				<td th:utext="${element.yearOfPublication}"></td>
+				<td th:utext="${element.quantity}"></td>
+				<td th:utext="${element.price}"></td>
+				<td th:utext="${element.description}"></td>
+				<td><a th:href="@{/product/edit/{id}(id=${element.id })}">Chỉnh sửa</a></td>
+				<td><a th:href="@{/product/delete/{id}(id=${element.id })}">Xóa</a></td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>
