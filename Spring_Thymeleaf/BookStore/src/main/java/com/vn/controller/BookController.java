@@ -30,6 +30,7 @@ public class BookController {
 
 	@GetMapping(value = "/")
 	public String index(Model model) {
+		model.addAttribute("content", "layout/home");
 		return "index";
 	}
 
@@ -40,7 +41,8 @@ public class BookController {
 
 		System.out.println(list.get(0));
 		model.addAttribute("books", list);
-		return "book_list";
+		model.addAttribute("content", "layout/book_list");
+		return "index";
 	}
 
 	@GetMapping("/product/new")
@@ -48,8 +50,8 @@ public class BookController {
 		Book book = new Book();
 
 		model.addAttribute("book", book);
-
-		return "add_book";
+		model.addAttribute("content", "layout/add_book");
+		return "index";
 	}
 
 	@GetMapping("/product/edit/{id}")
@@ -58,7 +60,8 @@ public class BookController {
 		Book book = bookService.getById(id);
 
 		model.addAttribute("book", book);
-		return "add_book";
+		model.addAttribute("content", "layout/add_book");
+		return "index";
 	}
 
 	@PostMapping("/product/save")

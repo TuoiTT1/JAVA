@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
@@ -7,9 +6,12 @@
  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-	<h1>Welcome</h1>
-	<h2 th:utext="${message}">..!..</h2>
-
-	<a th:href="@{/products}">Product List</a>
+	<div th:replace="fragment/_header::header"></div>
+	
+	<div th:replace="fragment/_menu::menu"></div>
+	
+	<div th:replace="${content}::content"></div>
+	
+	<div th:replace="fragment/_footer::footer"></div>
 </body>
 </html>
